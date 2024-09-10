@@ -23,13 +23,12 @@ export const sendMessage = async (req, res) => {
     });
     if (newMessage) {
       userConversation.messages.push(newMessage._id);
-      await newMessage.save();
     }
 
+    await newMessage.save();
+    await userConversation.save();
     console.log("Message sent:", newMessage);
-    res
-      .status(200)
-      .json({ message: `Message sent successfully:${newMessage.message}` });
+    res.status(200).json(newMessage);
   } catch (error) {
     console.log("error in sending message", error);
     res.status(400).json({ error: "Error in sending messsage" });
@@ -43,9 +42,10 @@ export const getMessage = async (req, res) => {
     const conversation = await Conversation.findOne({
       participants: { $all: [senderId, ChatToUserId] },
     }).populate("messages");
-    if (!conversation) res.status(200).json([]);
+    if (!conversation) return res.status(200).json([]);
 
-    res.status(200).json({ messages: conversation.messages });
+    const messages = conversation.messages;
+    res.status(200).json(messages);
   } catch (error) {
     console.log("error in getting message", error);
     res.status(500).json({ error: "Internal server Error" });

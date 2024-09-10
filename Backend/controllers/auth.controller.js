@@ -50,11 +50,10 @@ export const signup = async (req, res) => {
       gender,
       profilePic,
     });
-    await newUser.save();
     if (newUser) {
       genrateTokenAndSetCookie(newUser._id, res);
-      console.log("user:", newUser);
-      return res.status(201).json("user created successfully");
+      await newUser.save();
+      return res.status(201).json(newUser);
     } else {
       res.status(400).json({ error: "Invalid data input" });
     }
