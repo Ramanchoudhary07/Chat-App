@@ -29,10 +29,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "Frontend", "dist", "index.html"));
 });
 
-// app.get("/", (req, res) => {
-//   res.send("Hello world");
-// });
-
 server.listen(PORT, () => {
   connectToMongoDB();
   console.log(`server is running on port ${PORT}`);
