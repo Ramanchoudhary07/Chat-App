@@ -29,12 +29,10 @@ NODE_ENV=...
 
 ```
 npm run build
-
 ```
 
 ### Start the app
 
 ```
 npm start
-
 ```
