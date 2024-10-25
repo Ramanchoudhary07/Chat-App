@@ -9,7 +9,7 @@ const Conversatoins = () => {
 
   return (
     <div className="py-2 flex flex-col overflow-auto">
-      {conversations.map((conversation, idx) => (
+      {conversations?.map((conversation, idx) => (
         <Conversation
           key={conversation._id}
           conversation={conversation}
@@ -24,25 +24,3 @@ const Conversatoins = () => {
 };
 
 export default Conversatoins;
-
-// {conversations.map((conversation, idx) => {
-//   <Conversation
-//     key={conversation._id}
-//     conversaton={conversation}
-//     emoji={getRandomEmoji()}
-//     lastIdx={idx === conversation.length - 1}
-//   />;
-// })}
-
-// {Array(5).map((_, i) => {
-//   <Conversation
-//     conversation={{
-//       fullName: "raman",
-//       profilePic:
-//         "https://avatar.iran.liara.run/public/boy?username=raman1420",
-//     }}
-//     key={i}
-//     emoji="🏉"
-//     lastIdx={i === 4}
-//   />;
-// })}

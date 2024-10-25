@@ -17,9 +17,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 
-const allowedOrigins = [
-  process.env.CLIENT_URL, // Vercel frontend URL
-];
+const allowedOrigins = [process.env.CLIENT_URL];
 
 app.use(
   cors({
