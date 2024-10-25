@@ -1,4 +1,3 @@
-import { set } from "mongoose";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
@@ -25,17 +24,20 @@ const useSignUp = () => {
     if (!success) return;
     setLoading(true);
     try {
-      const res = await fetch(`/api/auth/signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName,
-          username,
-          password,
-          confirmPassword,
-          gender,
-        }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/auth/signup`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fullName,
+            username,
+            password,
+            confirmPassword,
+            gender,
+          }),
+        }
+      );
 
       const data = await res.json();
       if (data.error) {
