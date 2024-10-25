@@ -11,8 +11,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 function App() {
   const { authUser } = useAuthContext();
 
-  console.log("env: ", import.meta.env.VITE_API_URL);
-
   return (
     <div className="p-4 h-screen flex items-center justify-center">
       <Routes>
