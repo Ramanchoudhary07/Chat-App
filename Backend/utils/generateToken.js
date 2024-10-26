@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const genrateTokenAndSetCookie = (userId, res) => {
+  console.log("into generate token: ", userId);
+  console.log("jwt secret: ", process.env.JWT_SECRET);
+
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
     expiresIn: "15d",
   });

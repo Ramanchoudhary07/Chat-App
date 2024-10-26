@@ -1,8 +1,13 @@
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const protectedRoute = (req, res, next) => {
   try {
     const token = req.cookies.jwt;
+    console.log("cookies:", req.cookies);
+
     if (!token) {
       return res.status(400).json({ message: "UnAuthorized: no token found" });
     }
