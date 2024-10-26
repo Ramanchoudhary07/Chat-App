@@ -21,7 +21,7 @@ const Messages = () => {
         [...Array(3)].map((_, idx) => {
           <MessageSkeleton key={idx} />;
         })}
-      {/* {!loading && messages.length > 0 ? (
+      {!loading && messages.length > 0 ? (
         <div>
           {messages?.map((message) => (
             <div key={message._id} ref={lastMessageRef}>
@@ -33,7 +33,7 @@ const Messages = () => {
         <p className="text-center text-gray-300">
           Send a message to start a conversation
         </p>
-      )} */}
+      )}
     </div>
   );
 };
