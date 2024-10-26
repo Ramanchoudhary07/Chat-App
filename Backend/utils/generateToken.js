@@ -15,6 +15,7 @@ const genrateTokenAndSetCookie = (userId, res) => {
     secure: true,
     httpOnly: true,
     sameSite: "none",
+    path: "/api",
   });
 };
 
