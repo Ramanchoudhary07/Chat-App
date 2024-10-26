@@ -12,9 +12,9 @@ const genrateTokenAndSetCookie = (userId, res) => {
 
   res.cookie("jwt", token, {
     maxAge: 15 * 24 * 60 * 60 * 1000,
-    secure: process.env.NODE_ENV === "production",
+    secure: true,
     httpOnly: true,
-    sameSite: "strict",
+    sameSite: "none",
   });
 };
 
