@@ -7,6 +7,8 @@ const protectedRoute = (req, res, next) => {
   try {
     const token = req.cookies.jwt;
     console.log("cookies:", req.cookies);
+    console.log("jwt in cookies: ", { cookies: req.cookies });
+    console.log("token in protected route: ", token);
 
     if (!token) {
       return res.status(400).json({ message: "UnAuthorized: no token found" });

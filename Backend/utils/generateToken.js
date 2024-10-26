@@ -4,12 +4,11 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const genrateTokenAndSetCookie = (userId, res) => {
-  console.log("into generate token: ", userId);
-  console.log("jwt secret: ", process.env.JWT_SECRET);
-
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
     expiresIn: "15d",
   });
+
+  console.log("TOKEN: ", token);
 
   res.cookie("jwt", token, {
     maxAge: 15 * 24 * 60 * 60 * 1000,
@@ -17,6 +16,8 @@ const genrateTokenAndSetCookie = (userId, res) => {
     sameSite: "strict",
     secure: process.env.NODE_ENV !== "development",
   });
+
+  console.log("response cookie: ", res.cookie);
 };
 
 export default genrateTokenAndSetCookie;
