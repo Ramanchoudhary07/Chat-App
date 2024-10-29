@@ -10,7 +10,7 @@ const genrateTokenAndSetCookie = (userId, res) => {
 
   console.log("TOKEN: ", token);
 
-  res.cookie("jwt", token, {
+  res.cookie("accessToken", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "none",

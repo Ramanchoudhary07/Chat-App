@@ -5,7 +5,7 @@ dotenv.config();
 
 const protectedRoute = (req, res, next) => {
   try {
-    const token = req.cookies.jwt;
+    const token = req.cookies.accessToken;
     console.log("cookies:", req.cookies);
     console.log("token in protected route: ", token);
 
